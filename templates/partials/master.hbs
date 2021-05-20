@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="image/logo.png">
+    <title>{{ title }}</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    {{> header}}
+    {{> @partial-block }}
+    {{> footer }}
+
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/flipcountdown.js"></script>
+    <link rel="stylesheet" href="css/flipcountdown.css">
+    <script src="js/main.js"></script>
+    <script>
+        var swiper = new Swiper('.banner-slider', {
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            pagination: '.swiper-pagination',
+            paginationType: 'fraction',
+            slidesPerView: 2.4,
+            spaceBetween: 0,
+            autoplay:2500,
+            breakpoints: {
+                1024: {
+                    slidesPerView: 3,
+                    centeredSlides:true,
+                    loop:true,
+                    spaceBetween: 40
+                },
+                992: {
+                    slidesPerView: 2,
+                    loop:true,
+                    spaceBetween: 30
+                },
+                768: {
+                    slidesPerView: 2,
+                    loop:true,
+                    spaceBetween: 30
+                },
+                640: {
+                    slidesPerView: 1,
+                    loop:true,
+                    spaceBetween: 20
+                },
+                320: {
+                    slidesPerView: 1,
+                    loop:true,
+                    spaceBetween: 10
+                }
+            }
+        });
+    </script>
+    <script>
+        var swiper = new Swiper('.feedback-slider', {
+            pagination: '.swiper-pagination',
+            slidesPerView: 3,
+            spaceBetween: 50,
+            autoplay:2500,
+            breakpoints: {
+                1024: {
+                    slidesPerView: 2,
+                    spaceBetween: 40
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 40
+                },
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 30
+                },
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                }
+            }
+        });
+    </script>
+    <script>
+        var swiper = new Swiper('.blog-slider', {
+            slidesPerView: 3,
+            spaceBetween: 50,
+            loop:true,
+            autoplay:2500,
+            breakpoints: {
+                1024: {
+                    slidesPerView: 2,
+                    spaceBetween: 40
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 40
+                },
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 30
+                },
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                }
+            }
+        });
+    </script>
+    <script>
+        var swiper = new Swiper('.partner-slider', {
+            slidesPerView: 5,
+            spaceBetween: 50,
+            loop:true,
+            autoplay:2500,
+            centeredSlides: true,
+            breakpoints: {
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 40
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 40
+                },
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                },
+                320: {
+                    slidesPerView: 2,
+                    spaceBetween: 10
+                }
+            }
+        });
+    </script>
+    <script>
+        var swiper = new Swiper('.testimonial-slider', {
+            autoplay:2500,
+            slidesPerView: 1,
+            loop:true,
+        });
+    </script>
+    <script>
+		$(function(){
+			var NY = Math.round((new Date('1/01/2019 00:00:01')).getTime()/1000);
+			$('#remaining_time').flipcountdown({
+				tick:function(){
+					var	range  	= NY-Math.round((new Date()).getTime()/1000),
+						secday = 840000, sechour = 36000,
+						days 	= parseInt(range/secday),
+						hours	= parseInt((range%secday)/sechour),
+						min		= parseInt(((range%secday)%sechour)/600),
+						sec		= ((range%secday)%sechour)%60;
+					return (days)+' '+(hours)+' '+(min)+' '+(sec);
+				}
+			});
+		});
+    </script>
+
+</body>
+</html>
